@@ -1,4 +1,5 @@
 ﻿#include <iostream >
+
 using namespace std;
 // tao mang nhieu chieu 
 void taomang(int **&arr, int r, int c)
@@ -78,32 +79,36 @@ bool isnguyen_to(int x)
 
 	}
 }
-void   xuat_so_nguyen_to_theo_An(int**& arr, int r, int c)
+void   xuat_so_nguyen_to(int**& arr, int r, int c, char ten)
 {
 	for (int i = 0; i < r; i++)
 	{
 		for (int j = 0; j < c; j++)
 		{
-			if (isnguyen_to(arr[i][j]) == true)
+			if (isnguyen_to(arr[i][j]) == true && ten== 'a')
 			{
 				cout << arr[i][j] << " ";
 			}
-		}
-	}
-}
-void  xuat_so_nguyen_to_theo_Lan(int**& arr, int r, int c)
-{
-	for (int i = 0; i < r; i++)
-	{
-		for (int j = 0; j < c; j++)
-		{
-			if (isnguyen_to(arr[i][j]) == true)
+			if (isnguyen_to(arr[i][j]) == true&& ten=='l')
 			{
 				cout << arr[i][j] << " -" << " dong " << i << " ,cot " << j << endl;
 			}
 		}
 	}
 }
+//void  xuat_so_nguyen_to_theo_Lan(int**& arr, int r, int c)
+//{
+//	for (int i = 0; i < r; i++)
+//	{
+//		for (int j = 0; j < c; j++)
+//		{
+//			if (isnguyen_to(arr[i][j]) == true)
+//			{
+//				cout << arr[i][j] << " -" << " dong " << i << " ,cot " << j << endl;
+//			}
+//		}
+//	}
+//}
 bool lap() 
 {
 	char response;
@@ -159,16 +164,16 @@ int main()
 	cin >> key;
 	if (key == 'A'||key =='a')
 	{
-		xuat_so_nguyen_to_theo_An(arr, r, c); cout << endl;
+		xuat_so_nguyen_to(arr, r, c,'a'); cout << endl;
 	}
 	if (key == 'L'||key =='l')
 	{
-		xuat_so_nguyen_to_theo_Lan(arr, r, c); cout << endl;
+		xuat_so_nguyen_to(arr, r, c,'l'); cout << endl;
 	}
 	while (lap()) 
 	{
 		goto keyword ;
 	}
-	delete arr;
+	/*delete arr;*/
 	return 1;
 }
